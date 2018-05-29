@@ -13,19 +13,20 @@
     </head>
     <body style="font-size: x-small !important; height: 600px;">
         <div id="mdp-demo"></div>
-        <input id="numberOfSelectedDays" enabled="false"></input>
+        <input id="numberOfSelectedDays" disabled></input>
         <script>
             var today = new Date();
             var y = today.getFullYear();
             $('#mdp-demo').multiDatesPicker({
                 firstDay :1,
-                maxPicks: 20,
+                //maxPicks: 20,
                 addDates: ['12/13/'+y, '12/14/'+y, '12/17/'+y],
                 numberOfMonths: [3,4],
                 defaultDate: '1/1/'+y,
                 onSelect: function(day,cal) {
                     var count = $(".ui-state-highlight a").length;
-                    $("#numberOfSelectedDays").val(cal.settings.maxPicks - count);
+                    $("#numberOfSelectedDays").val(count);
+                   // $("#numberOfSelectedDays").val(cal.settings.maxPicks - count);
                 }
             });
         </script>
